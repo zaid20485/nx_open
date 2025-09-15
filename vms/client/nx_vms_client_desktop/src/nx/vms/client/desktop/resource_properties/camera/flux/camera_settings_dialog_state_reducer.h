@@ -209,6 +209,12 @@ public:
     static State setHasExportPermission(State state, bool value);
     static State setScreenRecordingOn(State state, bool value);
 
+    // Geolocation reducer methods
+    static State setGeolocationLatitude(State state, const std::optional<double>& latitude);
+    static State setGeolocationLongitude(State state, const std::optional<double>& longitude);
+    static State setGeolocationAltitude(State state, const std::optional<double>& altitude);
+    static State setGeolocationAddress(State state, const QString& address);
+
     /**
      * Enable or disable motion detection in the remote archive. Actual for the Edge Cameras (with
      * RemoteArchiveCapability option).

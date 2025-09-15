@@ -3034,6 +3034,38 @@ State CameraSettingsDialogStateReducer::setRemoteArchiveMotionDetectionEnabled(S
     return state;
 }
 
+CameraSettingsDialogStateReducer::State CameraSettingsDialogStateReducer::setGeolocationLatitude(
+    State state, const std::optional<double>& latitude)
+{
+    state.geolocation.latitude.setUser(latitude);
+    state.hasChanges = true;
+    return state;
+}
+
+CameraSettingsDialogStateReducer::State CameraSettingsDialogStateReducer::setGeolocationLongitude(
+    State state, const std::optional<double>& longitude)
+{
+    state.geolocation.longitude.setUser(longitude);
+    state.hasChanges = true;
+    return state;
+}
+
+CameraSettingsDialogStateReducer::State CameraSettingsDialogStateReducer::setGeolocationAltitude(
+    State state, const std::optional<double>& altitude)
+{
+    state.geolocation.altitude.setUser(altitude);
+    state.hasChanges = true;
+    return state;
+}
+
+CameraSettingsDialogStateReducer::State CameraSettingsDialogStateReducer::setGeolocationAddress(
+    State state, const QString& address)
+{
+    state.geolocation.address.setUser(address);
+    state.hasChanges = true;
+    return state;
+}
+
 bool CameraSettingsDialogStateReducer::isMotionDetectionDependingOnDualStreaming(
     const QnVirtualCameraResourcePtr& camera)
 {

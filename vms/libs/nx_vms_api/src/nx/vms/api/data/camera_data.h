@@ -3,6 +3,7 @@
 #pragma once
 
 #include <QtCore/QString>
+#include <optional>
 
 #include <nx/utils/latin1_array.h>
 
@@ -64,10 +65,23 @@ struct NX_VMS_API CameraData: ResourceData
 
     /**%apidoc [readonly] Device manufacturer. */
     QString vendor;
+
+    /**%apidoc[opt] Device latitude coordinate for geolocation. */
+    std::optional<double> latitude;
+
+    /**%apidoc[opt] Device longitude coordinate for geolocation. */
+    std::optional<double> longitude;
+
+    /**%apidoc[opt] Device altitude coordinate for geolocation. */
+    std::optional<double> altitude;
+
+    /**%apidoc[opt] Human-readable address for device location. */
+    QString geolocationAddress;
 };
 
 #define CameraData_Fields ResourceData_Fields \
-    (mac)(physicalId)(manuallyAdded)(model)(groupId)(groupName)(statusFlags)(vendor)
+    (mac)(physicalId)(manuallyAdded)(model)(groupId)(groupName)(statusFlags)(vendor)\
+    (latitude)(longitude)(altitude)(geolocationAddress)
 
 NX_VMS_API_DECLARE_STRUCT_AND_LIST(CameraData)
 

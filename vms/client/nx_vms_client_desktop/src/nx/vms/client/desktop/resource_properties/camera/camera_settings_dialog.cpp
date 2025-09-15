@@ -70,6 +70,7 @@
 #include "widgets/camera_settings_general_tab_widget.h"
 #include "widgets/camera_web_page_widget.h"
 #include "widgets/io_module_settings_widget.h"
+#include "widgets/camera_geolocation_settings_widget.h"
 
 namespace nx::vms::client::desktop {
 
@@ -401,6 +402,11 @@ CameraSettingsDialog::CameraSettingsDialog(QWidget* parent):
         int(CameraSettingsTab::expert),
         new CameraExpertSettingsWidget(d->store, ui->tabWidget),
         tr("Expert"));
+
+    GenericTabbedDialog::addPage(
+        int(CameraSettingsTab::geolocation),
+        new CameraGeolocationSettingsWidget(d->store, ui->tabWidget),
+        tr("Geolocation"));
 
     autoResizePagesToContents(ui->tabWidget, QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred),
         true);

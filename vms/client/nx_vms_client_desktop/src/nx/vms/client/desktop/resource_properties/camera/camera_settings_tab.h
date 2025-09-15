@@ -16,7 +16,8 @@ NX_REFLECTION_ENUM_CLASS(CameraSettingsTab,
     advanced,
     web,
     analytics,
-    expert
+    expert,
+    geolocation
 );
 
 } // namespace nx::vms::client::desktop

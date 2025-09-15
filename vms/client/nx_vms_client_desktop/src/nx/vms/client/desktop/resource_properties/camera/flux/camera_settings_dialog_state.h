@@ -268,6 +268,15 @@ struct NX_VMS_CLIENT_DESKTOP_API CameraSettingsDialogState: AbstractFluxState
     };
     SingleCameraSettings singleCameraSettings;
 
+    struct GeolocationSettings
+    {
+        UserEditable<std::optional<double>> latitude;
+        UserEditable<std::optional<double>> longitude;
+        UserEditable<std::optional<double>> altitude;
+        UserEditable<QString> address;
+    };
+    GeolocationSettings geolocation;
+
     camera_settings_detail::Motion motion;
 
     struct IoModuleSettings
@@ -497,6 +506,6 @@ inline std::ostream& operator<<(std::ostream& os, CameraSettingsDialogState::Sch
 }
 
 NX_REFLECTION_INSTRUMENT(CameraSettingsDialogState,
-    (hasChanges)(singleCameraProperties)(devicesDescription)(motion))
+    (hasChanges)(singleCameraProperties)(devicesDescription)(geolocation)(motion))
 
 } // namespace nx::vms::client::desktop

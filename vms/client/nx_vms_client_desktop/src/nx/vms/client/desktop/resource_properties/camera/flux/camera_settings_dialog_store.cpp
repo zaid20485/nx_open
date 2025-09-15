@@ -916,6 +916,38 @@ void CameraSettingsDialogStore::setScreenRecordingOn(bool value)
         });
 }
 
+void CameraSettingsDialogStore::setGeolocationLatitude(const std::optional<double>& latitude)
+{
+    d->executeAction([&](State state)
+        {
+            return Reducer::setGeolocationLatitude(std::move(state), latitude);
+        });
+}
+
+void CameraSettingsDialogStore::setGeolocationLongitude(const std::optional<double>& longitude)
+{
+    d->executeAction([&](State state)
+        {
+            return Reducer::setGeolocationLongitude(std::move(state), longitude);
+        });
+}
+
+void CameraSettingsDialogStore::setGeolocationAltitude(const std::optional<double>& altitude)
+{
+    d->executeAction([&](State state)
+        {
+            return Reducer::setGeolocationAltitude(std::move(state), altitude);
+        });
+}
+
+void CameraSettingsDialogStore::setGeolocationAddress(const QString& address)
+{
+    d->executeAction([&](State state)
+        {
+            return Reducer::setGeolocationAddress(std::move(state), address);
+        });
+}
+
 bool CameraSettingsDialogStore::isReadOnly() const
 {
     return d->state.readOnly;

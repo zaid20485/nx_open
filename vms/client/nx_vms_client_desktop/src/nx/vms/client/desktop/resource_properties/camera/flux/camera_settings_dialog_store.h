@@ -243,6 +243,12 @@ public:
     void setHasExportPermission(bool value);
     void setScreenRecordingOn(bool value);
 
+    // Geolocation methods
+    void setGeolocationLatitude(const std::optional<double>& latitude);
+    void setGeolocationLongitude(const std::optional<double>& longitude);
+    void setGeolocationAltitude(const std::optional<double>& altitude);
+    void setGeolocationAddress(const QString& address);
+
     Q_INVOKABLE bool isReadOnly() const;
 
 signals:
