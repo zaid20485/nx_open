@@ -55,6 +55,26 @@ DROP TABLE db_schema_applied_scripts_bak;
 
 )sql";
 
+// Add geolocation fields to camera table
+static constexpr char kAddCameraGeolocationFields[] = R"sql(
+
+ALTER TABLE cameras ADD COLUMN latitude REAL;
+ALTER TABLE cameras ADD COLUMN longitude REAL;
+ALTER TABLE cameras ADD COLUMN altitude REAL;
+ALTER TABLE cameras ADD COLUMN geolocation_address TEXT;
+
+)sql";
+
+// Add geolocation fields to camera table - SQLite version
+static constexpr char kAddCameraGeolocationFields_sqlite[] = R"sql(
+
+ALTER TABLE cameras ADD COLUMN latitude REAL;
+ALTER TABLE cameras ADD COLUMN longitude REAL; 
+ALTER TABLE cameras ADD COLUMN altitude REAL;
+ALTER TABLE cameras ADD COLUMN geolocation_address TEXT;
+
+)sql";
+
 //-------------------------------------------------------------------------------------------------
 
 DbStructureUpdater::DbStructureUpdater(
@@ -237,6 +257,10 @@ void DbStructureUpdater::updateMaintenanceDbScheme(QueryContext* queryContext)
     schemaUpdater.addUpdateScript("kAddMissingPrimaryKeys", {
         {nx::sql::RdbmsDriverType::sqlite, std::string(kAddMissingPrimaryKeys_sqlite)},
         {nx::sql::RdbmsDriverType::unknown, std::string(kAddMissingPrimaryKeys_mysql)} //< default.
+    });
+    schemaUpdater.addUpdateScript("kAddCameraGeolocationFields", {
+        {nx::sql::RdbmsDriverType::sqlite, std::string(kAddCameraGeolocationFields_sqlite)},
+        {nx::sql::RdbmsDriverType::unknown, std::string(kAddCameraGeolocationFields)} //< default.
     });
 
     schemaUpdater.updateStruct(queryContext);
