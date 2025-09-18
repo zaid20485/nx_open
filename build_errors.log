@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\zaidw\devlab\vms_works\nx_open\.venv\Scripts\cmake.exe\__main__.py", line 6, in <module>
+  File "c:\Users\zaidw\devlab\vms_works\nx_open\.venv\Lib\site-packages\cmake\__init__.py", line 51, in cmake
+    raise SystemExit(_program('cmake', sys.argv[1:]))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\zaidw\devlab\vms_works\nx_open\.venv\Lib\site-packages\cmake\__init__.py", line 47, in _program
+    return subprocess.call([os.path.join(CMAKE_BIN_DIR, name), *args], close_fds=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaidw\AppData\Local\Python\pythoncore-3.12-64\Lib\subprocess.py", line 391, in call
+    return p.wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaidw\AppData\Local\Python\pythoncore-3.12-64\Lib\subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaidw\AppData\Local\Python\pythoncore-3.12-64\Lib\subprocess.py", line 1590, in _wait
+    result = _winapi.WaitForSingleObject(self._handle,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
